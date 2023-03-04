@@ -3,7 +3,7 @@ package com.driver.model;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "connections")
 public class Connection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +15,10 @@ public class Connection {
     @JoinColumn
     @ManyToOne
     private ServiceProvider serviceProvider;
+
+    public Connection() {
+    }
+
 
     public int getId() {
         return id;

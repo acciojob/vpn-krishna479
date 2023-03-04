@@ -3,31 +3,24 @@ package com.driver.model;// Note: Do not write @Enumerated annotation above Coun
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "countries")
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-
-    String code;
-
+    private int id;
     @Enumerated(EnumType.STRING)
-    CountryName countryName;
+    private CountryName countryName;
+
+    private String code;
+
 
     @ManyToOne
     @JoinColumn
     private ServiceProvider serviceProvider;
 
+
     @OneToOne
     private User user;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public Country() {
     }
@@ -40,14 +33,6 @@ public class Country {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public CountryName getCountryName() {
         return countryName;
     }
@@ -56,12 +41,28 @@ public class Country {
         this.countryName = countryName;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public ServiceProvider getServiceProvider() {
         return serviceProvider;
     }
 
     public void setServiceProvider(ServiceProvider serviceProvider) {
         this.serviceProvider = serviceProvider;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }
