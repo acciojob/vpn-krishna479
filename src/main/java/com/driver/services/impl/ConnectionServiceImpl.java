@@ -21,6 +21,7 @@ public class ConnectionServiceImpl implements ConnectionService {
 
     @Override
     public User connect(int userId, String countryName) throws Exception{
+
         User user = userRepository2.findById(userId).get();
         if(user.getMaskedIp()!=null){
             throw new Exception("Already connected");
@@ -73,7 +74,6 @@ public class ConnectionServiceImpl implements ConnectionService {
             }
         }
         return user;
-
     }
     @Override
     public User disconnect(int userId) throws Exception {
@@ -85,7 +85,6 @@ public class ConnectionServiceImpl implements ConnectionService {
         user.setConnected(false);
         userRepository2.save(user);
         return user;
-
     }
     @Override
     public User communicate(int senderId, int receiverId) throws Exception {
@@ -133,6 +132,5 @@ public class ConnectionServiceImpl implements ConnectionService {
             else return user2;
 
         }
-
     }
 }

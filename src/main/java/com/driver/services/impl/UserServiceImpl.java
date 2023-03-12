@@ -23,7 +23,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User register(String username, String password, String countryName) throws Exception{
-
         User user = new User();
         if(countryName.equalsIgnoreCase("IND") || countryName.equalsIgnoreCase("USA")|| countryName.equalsIgnoreCase("JPN")|| countryName.equalsIgnoreCase("AUS")|| countryName.equalsIgnoreCase("CHI")){
             user.setUsername(username);
@@ -78,5 +77,6 @@ public class UserServiceImpl implements UserService {
 
         serviceProviderRepository3.save(serviceProvider);
         return user;
+
     }
 }
